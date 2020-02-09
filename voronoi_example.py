@@ -1,3 +1,7 @@
+"""
+Example of how a set of points can be turned into Voronoi partitions using SciPy
+"""
+
 from scipy.spatial import Voronoi, voronoi_plot_2d
 import matplotlib.pyplot as plt
 from random import randint
