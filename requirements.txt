@@ -1,0 +1,7 @@
+dill==0.3.1.1
+evol==0.5.1
+imgcompare==2.0.1
+multiprocess==0.70.9
+numpy==1.18.1
+Pillow==7.0.0
+scipy==1.4.1
