@@ -107,45 +107,45 @@ if __name__ == "__main__":
                           .breed(parent_picker=pick_best_and_random, combiner=merge, population_size=population_size)
                           .mutate(mutate_function=mutate_painting, rate=0.05, sigma=0.5)
                           .evaluate(lazy=False)
-                          .apply(print_summary,
-                                 img_template=image_template,
-                                 checkpoint_path=checkpoint_path))
+                          .callback(print_summary,
+                                    img_template=image_template,
+                                    checkpoint_path=checkpoint_path))
 
     evo_step_1 = (Evolution()
                   .survive(fraction=0.025)
                   .breed(parent_picker=pick_best_and_random, combiner=mate, population_size=population_size)
                   .mutate(mutate_function=mutate_painting, rate=0.05, sigma=0.5)
                   .evaluate(lazy=False)
-                  .apply(print_summary,
-                         img_template=image_template,
-                         checkpoint_path=checkpoint_path))
+                  .callback(print_summary,
+                            img_template=image_template,
+                            checkpoint_path=checkpoint_path))
 
     evo_step_2 = (Evolution()
                   .survive(fraction=0.025)
                   .breed(parent_picker=pick_best_and_random, combiner=mate, population_size=population_size)
                   .mutate(mutate_function=mutate_painting, rate=0.03, sigma=0.4)
                   .evaluate(lazy=False)
-                  .apply(print_summary,
-                         img_template=image_template,
-                         checkpoint_path=checkpoint_path))
+                  .callback(print_summary,
+                            img_template=image_template,
+                            checkpoint_path=checkpoint_path))
 
     evo_step_3 = (Evolution()
                   .survive(fraction=0.025)
                   .breed(parent_picker=pick_best_and_random, combiner=mate, population_size=population_size)
                   .mutate(mutate_function=mutate_painting, rate=0.005, sigma=0.4)
                   .evaluate(lazy=False)
-                  .apply(print_summary,
-                         img_template=image_template,
-                         checkpoint_path=checkpoint_path))
+                  .callback(print_summary,
+                            img_template=image_template,
+                            checkpoint_path=checkpoint_path))
 
     shrink_step = (Evolution()
                    .survive(n=1)
                    .breed(parent_picker=pick_best, combiner=clone, population_size=population_size)
                    .mutate(mutate_function=shrink_painting)
                    .evaluate(lazy=False)
-                   .apply(print_summary,
-                          img_template=image_template,
-                          checkpoint_path=checkpoint_path))
+                   .callback(print_summary,
+                             img_template=image_template,
+                             checkpoint_path=checkpoint_path))
 
     # 250 points
     pop = pop.evolve(evo_step_1, n=999)
